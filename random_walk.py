@@ -1,7 +1,7 @@
 from random import choice
 
 
-class RandomWlk():
+class RandomWalk():
     """Uma classe para gerar caminhos aleatórios"""
 
     def __init__(self, num_points=5000):
