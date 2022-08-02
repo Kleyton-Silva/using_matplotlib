@@ -6,9 +6,22 @@ while True:
     # Cria passeios aleatórios e plota os pontos
     rw = RandomWalk()
     rw.fill_walk()
-    plt.scatter(rw.x_values, rw.y_values, s=15)
+
+    point_numbers = list(range(rw.num_points))
+    plt.scatter(rw.x_values, rw.y_values, c=point_numbers,
+                cmap=plt.cm.Blues, edgecolor='none', s=10)
+
+    # Entafizando o primeiro e o último ponto
+    plt.scatter(0, 0, c='green', edgecolors='none', s=35)
+    plt.scatter(rw.x_values[-1], rw.y_values[-1], c='red',
+                edgecolors='none', s=350)
+
+    # Remove os eixos para uma melhora visualização
+    # plt.axes().get_xaxis().set_visible(False)
+    # plt.axes().get_yaxis().set_visible(False)
+
     plt.show()
-    
+
     keep_running = input("Make another walk? (y/n): ")
     if keep_running == 'n':
         break
